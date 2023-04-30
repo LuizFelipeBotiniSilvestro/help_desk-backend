@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.luiz.help_desk.domain.Tecnico;
+import com.luiz.help_desk.domain.dtos.TecnicoDTO;
 import com.luiz.help_desk.services.TecnicoService;
 
 @RestController
@@ -21,11 +22,13 @@ public class TecnicoResource {
 	
 	// localhost:8080/tecnicos/1
 	
+	// Entendendo a linha: return ResponseEntity.ok().body(new TecnicoDTO(obj));
 	
+	// Classe tecnico DTO recebe e monta o obj para ser retornado (separando entidade pessoa do tecnico (mais segurança))
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Tecnico> findById(@PathVariable Integer id) {
+	public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
 		Tecnico obj = this.service.findById(id);
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(new TecnicoDTO(obj));
 		
 	}
 	
