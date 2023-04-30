@@ -18,7 +18,7 @@ import com.luiz.help_desk.repositories.TecnicoRepository;
 @Service
 public class DBService {
 
-	// Injetando depêndencias destas interfaces.
+	// Injetando dependências destas interfaces.
 	@Autowired
 	private TecnicoRepository tecnicoRepository;
 	@Autowired
@@ -30,15 +30,15 @@ public class DBService {
 	public void instanciaDB() {
 		Tecnico tec1 = new Tecnico(null, "Luiz Felipe", "11765549990", "email@gmail.com", "123");
 		tec1.addPerfil(Perfil.ADMIN);
-		Tecnico tec2 = new Tecnico(null, "Gabriel", "11111111111", "email1@gmail.com", "123");
+		Tecnico tec2 = new Tecnico(null, "Gabriel", "69315400925", "email1@gmail.com", "123");
 		tec1.addPerfil(Perfil.TECNICO);
-		Tecnico tec3 = new Tecnico(null, "Vitor", "22222222222", "email2@gmail.com", "123");
+		Tecnico tec3 = new Tecnico(null, "Vitor", "33296342940", "email2@gmail.com", "123");
 		tec1.addPerfil(Perfil.TECNICO);
-		Tecnico tec4 = new Tecnico(null, "Valdir", "33333333333", "email3@gmail.com", "123");
+		Tecnico tec4 = new Tecnico(null, "Valdir", "64471145797", "email3@gmail.com", "123");
 		tec1.addPerfil(Perfil.TECNICO);
 		
 		
-		Cliente cli1 = new Cliente(null, "Linus Torvalds", "69315400925", "torvalds@email.com", "123");
+		Cliente cli1 = new Cliente(null, "Linus Torvalds", "41308163142", "torvalds@email.com", "123");
 		
 		Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tec1, cli1);
 		

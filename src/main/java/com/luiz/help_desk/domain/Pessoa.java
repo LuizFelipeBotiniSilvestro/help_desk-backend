@@ -7,6 +7,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.luiz.help_desk.domain.enums.Perfil;
 
@@ -29,6 +31,7 @@ public abstract class Pessoa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Responsabilidade de criar o id é o banco de dados.
 	protected Integer id;
 	protected String nome;
+	@CPF // Faz todo cálculo para ver se é um CPF válido
 	@Column(unique = true)
 	protected String cpf;
 	@Column(unique = true)
