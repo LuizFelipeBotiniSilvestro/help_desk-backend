@@ -18,6 +18,8 @@ import com.luiz.help_desk.domain.Tecnico;
 import com.luiz.help_desk.domain.dtos.TecnicoDTO;
 import com.luiz.help_desk.services.TecnicoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/tecnicos")
 public class TecnicoResource {
@@ -49,7 +51,7 @@ public class TecnicoResource {
 	// Criar novo tecnico
 	// As informações vem no corpo da requisição
 	@PostMapping
-	public ResponseEntity<TecnicoDTO> create(@RequestBody TecnicoDTO objDTO) {
+	public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO objDTO) {
 		Tecnico newObj = service.create(objDTO);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
