@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.luiz.help_desk.domain.dtos.TecnicoDTO;
 import com.luiz.help_desk.domain.enums.Perfil;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-
 @Entity
 public class Tecnico extends Pessoa {
 
+	private static final long serialVersionUID = 1L;
 	@JsonIgnore
 	@OneToMany(mappedBy = "tecnico")
 	private List<Chamado> chamados = new ArrayList<>();

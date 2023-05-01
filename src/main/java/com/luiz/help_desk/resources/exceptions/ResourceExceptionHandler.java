@@ -1,6 +1,6 @@
 package com.luiz.help_desk.resources.exceptions;
 
-import java.time.LocalDateTime;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.luiz.help_desk.services.exception.DataIntegrityViolationException;
 import com.luiz.help_desk.services.exception.ObjectNotFoundException;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

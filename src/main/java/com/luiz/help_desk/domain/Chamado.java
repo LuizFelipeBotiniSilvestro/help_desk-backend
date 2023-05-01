@@ -4,26 +4,22 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import org.hibernate.annotations.ManyToAny;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.luiz.help_desk.domain.enums.Prioridade;
 import com.luiz.help_desk.domain.enums.Status;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
-@Entity
+@javax.persistence.Entity
 public class Chamado implements Serializable {
 	
 	// protected = todas as classes filhas tem acesso à este atributo
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Responsabilidade de criar o id é o banco de dados.
 	private Integer id;
 	@JsonFormat(pattern = "dd/MM/yyyy")

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import jakarta.validation.Valid;
 
 @Component
 public class JWTUtil {

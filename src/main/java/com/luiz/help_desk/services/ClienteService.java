@@ -3,19 +3,19 @@ package com.luiz.help_desk.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.luiz.help_desk.domain.Pessoa;
 import com.luiz.help_desk.domain.Cliente;
+import com.luiz.help_desk.domain.Pessoa;
 import com.luiz.help_desk.domain.dtos.ClienteDTO;
-import com.luiz.help_desk.repositories.PessoaRepository;
 import com.luiz.help_desk.repositories.ClienteRepository;
+import com.luiz.help_desk.repositories.PessoaRepository;
 import com.luiz.help_desk.services.exception.DataIntegrityViolationException;
 import com.luiz.help_desk.services.exception.ObjectNotFoundException;
-
-import jakarta.validation.Valid;
 
 @Service
 public class ClienteService {

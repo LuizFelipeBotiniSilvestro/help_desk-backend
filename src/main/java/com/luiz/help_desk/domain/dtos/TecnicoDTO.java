@@ -4,18 +4,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
+
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.luiz.help_desk.domain.Tecnico;
 import com.luiz.help_desk.domain.enums.Perfil;
-
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.FetchType;
-import jakarta.validation.constraints.NotNull;
 
 public class TecnicoDTO  implements Serializable {
 	
