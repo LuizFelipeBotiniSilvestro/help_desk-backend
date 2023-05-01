@@ -1,5 +1,6 @@
 package com.luiz.help_desk.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +15,8 @@ import com.luiz.help_desk.domain.enums.Prioridade;
 import com.luiz.help_desk.domain.enums.Status;
 import com.luiz.help_desk.repositories.ChamadoRepository;
 import com.luiz.help_desk.services.exception.ObjectNotFoundException;
+
+import jakarta.validation.Valid;
 
 @Service
 public class ChamadoService {
@@ -38,6 +41,13 @@ public class ChamadoService {
 		return repository.save(newChamado(objDTO));
 	}
 	
+	public Chamado update(Integer id, @Valid ChamadoDTO objDTO) {
+		objDTO.setId(id); // Por segurança
+		Chamado oldObj = findById(id); // Verifica se existe
+		oldObj = newChamado(objDTO); // Atualiza as informações
+		return repository.save(oldObj);
+	}
+	
 	private Chamado newChamado(ChamadoDTO obj) {
 		Tecnico tecnico = tecnicoService.findById(obj.getTecnico());
 		Cliente cliente = clienteService.findById(obj.getCliente());
@@ -48,6 +58,10 @@ public class ChamadoService {
 			chamado.setId(obj.getId());
 		}
 		
+		if (obj.getStatus().equals(2)) {
+			chamado.setDataFechamento(LocalDate.now());
+		}
+		
 		chamado.setTecnico(tecnico);
 		chamado.setCliente(cliente);
 		chamado.setPrioridade(Prioridade.toEnum(obj.getPrioridade()));
@@ -56,4 +70,5 @@ public class ChamadoService {
 		chamado.setObservacao(obj.getObservacao());
 		return chamado;
 	}
+
 }
