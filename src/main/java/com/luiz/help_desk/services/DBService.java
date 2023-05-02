@@ -39,7 +39,6 @@ public class DBService {
 		Tecnico tec4 = new Tecnico(null, "Valdir", "64471145797", "email3@gmail.com", encoder.encode("123"));
 		tec1.addPerfil(Perfil.TECNICO);
 		
-		
 		Cliente cli1 = new Cliente(null, "Linus Torvalds", "41308163142", "torvalds@email.com", encoder.encode("123"));
 		Cliente cli2 = new Cliente(null, "Max", "41931024162", "max@email.com", encoder.encode("123"));
 		

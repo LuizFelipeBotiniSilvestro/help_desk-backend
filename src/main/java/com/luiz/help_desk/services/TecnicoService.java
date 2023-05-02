@@ -41,7 +41,7 @@ public class TecnicoService {
 		objDTO.setId(null); // Por segurança, por quê se ir valor do id para requisição, o banco de dados entende que é update.
 		objDTO.setSenha(encoder.encode(objDTO.getSenha()));
 		
-		// Chama a função que validade 
+		// Chama a função que valida
 		validaPorCpfEmail(objDTO);
 		
 		Tecnico newObj = new Tecnico(objDTO);	
